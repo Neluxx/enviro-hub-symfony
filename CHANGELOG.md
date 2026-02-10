@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - phpstan/phpstan-doctrine updated from 2.0.13 to 2.0.14 patch
 - phpunit/phpunit updated from 12.5.6 to 12.5.8 patch
 
-## [v2.0.3 Venus](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.3) - 2026-01-27
+## [v2.0.3](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.3) - 2026-01-27
 
 ### Added
 - Add index for node_uuid column in sensor_data table
@@ -39,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use DateTimeImmutable instead of DateTime
 - Use decimals and integers as sensor data values instead of doubles
 
-## [v2.0.2 Venus](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.2) - 2026-01-23
+## [v2.0.2](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.2) - 2026-01-23
 
 ### Added
 - Add default values for not existing sensor data in dashboard template
@@ -72,7 +72,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - phpunit/phpunit updated from 12.4.4 to 12.5.6 minor
 - symfony/maker-bundle updated from 1.64 to 1.65.1 minor
 
-## [v2.0.1 Venus](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.1) - 2026-01-21
+## [v2.0.1](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.1) - 2026-01-21
 
 ### Changed
 - Swap position of version number and timestamp in dashboard template
@@ -81,7 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add index to node UUID to prevent memory exhaustion
 - Retrieve only the latest entry of the specified node UUIDs
 
-## [v2.0.0 Venus](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.0) - 2026-01-20
+## [v2.0.0](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.0) - 2026-01-20
 
 ### Added
 - Add Multi-Node support [#18](https://github.com/Neluxx/enviro-hub/issues/18)
@@ -108,7 +108,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dependencies
 - Added doctrine/doctrine-fixtures-bundle for test fixtures [#27](https://github.com/Neluxx/enviro-hub/issues/27)
 
-## [v1.3.0 Mercury](https://github.com/Neluxx/enviro-hub/releases/tag/v1.3.0) - 2025-11-27
+## [v1.3.0](https://github.com/Neluxx/enviro-hub/releases/tag/v1.3.0) - 2025-11-27
 
 ### Changed
 - Changed style to dark mode [#12](https://github.com/Neluxx/enviro-hub/issues/12)
@@ -120,7 +120,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed air pressure chart from dashboard [#14](https://github.com/Neluxx/enviro-hub/issues/14)
 - Removed chart data aggregation [#14](https://github.com/Neluxx/enviro-hub/issues/14)
 
-## [v1.2.0 Mercury](https://github.com/Neluxx/enviro-hub/releases/tag/v1.2.0) - 2025-11-25
+## [v1.2.0](https://github.com/Neluxx/enviro-hub/releases/tag/v1.2.0) - 2025-11-25
 
 ### Added
 - Added color-coded status indicators for sensor values based on optimal ranges [#10](https://github.com/Neluxx/enviro-hub/issues/10)
@@ -134,18 +134,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dependencies
 - Added Chart.js annotation plugin v3.0.1 for reference line visualization
 
-## [v1.1.1 Mercury](https://github.com/Neluxx/enviro-hub/releases/tag/v1.1.1) - 2025-11-25
+## [v1.1.1](https://github.com/Neluxx/enviro-hub/releases/tag/v1.1.1) - 2025-11-25
 
 ### Fixed
 - Set timezone for date range of the chart data to remove DST delay [#8](https://github.com/Neluxx/enviro-hub/issues/8)
 
-## [v1.1.0 Mercury](https://github.com/Neluxx/enviro-hub/releases/tag/v1.1.0) - 2025-11-24
+## [v1.1.0](https://github.com/Neluxx/enviro-hub/releases/tag/v1.1.0) - 2025-11-24
 
 ### Added
 
 - Implemented interactive Chart.js visualizations for environmental sensor data [#1](https://github.com/Neluxx/enviro-hub/issues/1)
 
-## [v1.0.0 Mercury](https://github.com/Neluxx/enviro-hub/releases/tag/v1.0.0) - 2025-10-27
+## [v1.0.0](https://github.com/Neluxx/enviro-hub/releases/tag/v1.0.0) - 2025-10-27
 
 ### Added
 
