@@ -21,6 +21,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 ### Dependencies
+
+## [v2.1.0](https://github.com/Neluxx/enviro-hub/releases/tag/v2.1.0) - 2026-02-23
+
+### Changed
+- Use decimals and integers as sensor data values instead of doubles
+- Modify migrations to use ORM instead of plain SQL
+
+### Dependencies
 - phpstan/phpdoc-parser updated from 2.3.1 to 2.3.2 patch
 - twig/extra-bundle updated from 3.22.2 to 3.23.0 minor
 - twig/twig updated from 3.22.2 to 3.23.0 minor
@@ -37,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Squash all migrations into initial ones
 - Use DateTimeImmutable instead of DateTime
-- Use decimals and integers as sensor data values instead of doubles
+- Use integers as sensor data values instead of floats
 
 ## [v2.0.2](https://github.com/Neluxx/enviro-hub/releases/tag/v2.0.2) - 2026-01-23
 
