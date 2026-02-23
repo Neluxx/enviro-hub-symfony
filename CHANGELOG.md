@@ -22,6 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 
+## [v2.1.1](https://github.com/Neluxx/enviro-hub/releases/tag/v2.1.0) - 2026-02-23
+
+### Changed
+- Adjust thresholds for temperature, humidity and carbon dioxide
+
 ## [v2.1.0](https://github.com/Neluxx/enviro-hub/releases/tag/v2.1.0) - 2026-02-23
 
 ### Changed
