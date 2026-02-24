@@ -9,8 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Add node title to dashboard index template
 
 ### Changed
+- Remove chart annotations and set suggested min and max values for y-axis
 
 ### Deprecated
 
