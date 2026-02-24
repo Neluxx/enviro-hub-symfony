@@ -18,11 +18,12 @@ use Symfony\UX\Chartjs\Model\Chart;
  */
 class DashboardService
 {
-    private const int TEMP_OPTIMAL_MIN = 16;
-    private const int TEMP_OPTIMAL_MAX = 24;
-    private const int HUMIDITY_OPTIMAL_MIN = 40;
-    private const int HUMIDITY_OPTIMAL_MAX = 60;
-    private const int CO2_WARNING_MAX = 2000;
+    private const int TEMP_MIN = 10;
+    private const int TEMP_MAX = 30;
+    private const int HUMIDITY_MIN = 0;
+    private const int HUMIDITY_MAX = 100;
+    private const int CO2_MIN = 400;
+    private const int CO2_MAX = 2000;
 
     private SensorDataRepository $repository;
     private ChartBuilderInterface $chartBuilder;
@@ -95,8 +96,8 @@ class DashboardService
                 'y' => [
                     'grid' => ['color' => 'rgba(255, 255, 255, 0.1)'],
                     'beginAtZero' => false,
-                    'suggestedMin' => self::TEMP_OPTIMAL_MIN,
-                    'suggestedMax' => self::TEMP_OPTIMAL_MAX,
+                    'suggestedMin' => self::TEMP_MIN,
+                    'suggestedMax' => self::TEMP_MAX,
                 ],
             ],
         ]);
@@ -138,8 +139,8 @@ class DashboardService
                 'y' => [
                     'grid' => ['color' => 'rgba(255, 255, 255, 0.1)'],
                     'beginAtZero' => false,
-                    'suggestedMin' => self::HUMIDITY_OPTIMAL_MIN,
-                    'suggestedMax' => self::HUMIDITY_OPTIMAL_MAX,
+                    'suggestedMin' => self::HUMIDITY_MIN,
+                    'suggestedMax' => self::HUMIDITY_MAX,
                 ],
             ],
         ]);
@@ -180,8 +181,9 @@ class DashboardService
                 'x' => ['grid' => ['color' => 'rgba(255, 255, 255, 0.1)']],
                 'y' => [
                     'grid' => ['color' => 'rgba(255, 255, 255, 0.1)'],
-                    'beginAtZero' => true,
-                    'suggestedMax' => self::CO2_WARNING_MAX,
+                    'beginAtZero' => false,
+                    'suggestedMin' => self::CO2_MIN,
+                    'suggestedMax' => self::CO2_MAX,
                 ],
             ],
         ]);
