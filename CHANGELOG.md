@@ -22,6 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 
+## [v2.2.1](https://github.com/Neluxx/enviro-hub/releases/tag/v2.2.1) - 2026-02-24
+
+### Changed
+- Adjust suggested min and max values for y-axis
+- Adjust styling of the node title on the dashboard template
+
 ## [v2.2.0](https://github.com/Neluxx/enviro-hub/releases/tag/v2.2.0) - 2026-02-24
 
 ### Added
