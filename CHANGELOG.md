@@ -9,10 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Add node title to dashboard index template
 
 ### Changed
-- Remove chart annotations and set suggested min and max values for y-axis
 
 ### Deprecated
 
@@ -24,7 +22,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 
-## [v2.1.1](https://github.com/Neluxx/enviro-hub/releases/tag/v2.1.0) - 2026-02-23
+## [v2.2.0](https://github.com/Neluxx/enviro-hub/releases/tag/v2.2.0) - 2026-02-24
+
+### Added
+- Add node title to dashboard index template
+
+### Changed
+- Remove chart annotations and set suggested min and max values for y-axis
+
+## [v2.1.1](https://github.com/Neluxx/enviro-hub/releases/tag/v2.1.1) - 2026-02-23
 
 ### Changed
 - Adjust thresholds for temperature, humidity and carbon dioxide
