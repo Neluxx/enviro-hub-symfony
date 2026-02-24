@@ -18,12 +18,11 @@ use Symfony\UX\Chartjs\Model\Chart;
  */
 class DashboardService
 {
-    private const int TEMP_OPTIMAL_MIN = 18;
+    private const int TEMP_OPTIMAL_MIN = 16;
     private const int TEMP_OPTIMAL_MAX = 24;
     private const int HUMIDITY_OPTIMAL_MIN = 40;
     private const int HUMIDITY_OPTIMAL_MAX = 60;
-    private const int CO2_OPTIMAL_MAX = 1000;
-    private const int CO2_WARNING_MAX = 1600;
+    private const int CO2_WARNING_MAX = 2000;
 
     private SensorDataRepository $repository;
     private ChartBuilderInterface $chartBuilder;
@@ -90,56 +89,14 @@ class DashboardService
                 'intersect' => false,
                 'mode' => 'index',
             ],
-            'plugins' => [
-                'legend' => ['display' => false],
-                'annotation' => [
-                    'annotations' => [
-                        'optimalRange' => [
-                            'type' => 'box',
-                            'yMin' => self::TEMP_OPTIMAL_MIN,
-                            'yMax' => self::TEMP_OPTIMAL_MAX,
-                            'backgroundColor' => 'rgba(75, 192, 192, 0.1)',
-                            'borderColor' => 'rgba(75, 192, 192, 0.3)',
-                            'borderWidth' => 1,
-                        ],
-                        'minLine' => [
-                            'type' => 'line',
-                            'yMin' => self::TEMP_OPTIMAL_MIN,
-                            'yMax' => self::TEMP_OPTIMAL_MIN,
-                            'borderColor' => 'rgba(75, 192, 192, 0.5)',
-                            'borderWidth' => 2,
-                            'borderDash' => [5, 5],
-                            'label' => [
-                                'display' => true,
-                                'content' => 'Min '.self::TEMP_OPTIMAL_MIN.'°C',
-                                'position' => 'start',
-                                'color' => 'rgba(255, 255, 255, 0.7)',
-                                'font' => ['size' => 11],
-                            ],
-                        ],
-                        'maxLine' => [
-                            'type' => 'line',
-                            'yMin' => self::TEMP_OPTIMAL_MAX,
-                            'yMax' => self::TEMP_OPTIMAL_MAX,
-                            'borderColor' => 'rgba(75, 192, 192, 0.5)',
-                            'borderWidth' => 2,
-                            'borderDash' => [5, 5],
-                            'label' => [
-                                'display' => true,
-                                'content' => 'Max '.self::TEMP_OPTIMAL_MAX.'°C',
-                                'position' => 'start',
-                                'color' => 'rgba(255, 255, 255, 0.7)',
-                                'font' => ['size' => 11],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
+            'plugins' => ['legend' => ['display' => false]],
             'scales' => [
                 'x' => ['grid' => ['color' => 'rgba(255, 255, 255, 0.1)']],
                 'y' => [
                     'grid' => ['color' => 'rgba(255, 255, 255, 0.1)'],
                     'beginAtZero' => false,
+                    'suggestedMin' => self::TEMP_OPTIMAL_MIN,
+                    'suggestedMax' => self::TEMP_OPTIMAL_MAX,
                 ],
             ],
         ]);
@@ -175,56 +132,14 @@ class DashboardService
                 'intersect' => false,
                 'mode' => 'index',
             ],
-            'plugins' => [
-                'legend' => ['display' => false],
-                'annotation' => [
-                    'annotations' => [
-                        'optimalRange' => [
-                            'type' => 'box',
-                            'yMin' => self::HUMIDITY_OPTIMAL_MIN,
-                            'yMax' => self::HUMIDITY_OPTIMAL_MAX,
-                            'backgroundColor' => 'rgba(75, 192, 192, 0.1)',
-                            'borderColor' => 'rgba(75, 192, 192, 0.3)',
-                            'borderWidth' => 1,
-                        ],
-                        'minLine' => [
-                            'type' => 'line',
-                            'yMin' => self::HUMIDITY_OPTIMAL_MIN,
-                            'yMax' => self::HUMIDITY_OPTIMAL_MIN,
-                            'borderColor' => 'rgba(75, 192, 192, 0.5)',
-                            'borderWidth' => 2,
-                            'borderDash' => [5, 5],
-                            'label' => [
-                                'display' => true,
-                                'content' => 'Min '.self::HUMIDITY_OPTIMAL_MIN.'%',
-                                'position' => 'start',
-                                'color' => 'rgba(255, 255, 255, 0.7)',
-                                'font' => ['size' => 11],
-                            ],
-                        ],
-                        'maxLine' => [
-                            'type' => 'line',
-                            'yMin' => self::HUMIDITY_OPTIMAL_MAX,
-                            'yMax' => self::HUMIDITY_OPTIMAL_MAX,
-                            'borderColor' => 'rgba(75, 192, 192, 0.5)',
-                            'borderWidth' => 2,
-                            'borderDash' => [5, 5],
-                            'label' => [
-                                'display' => true,
-                                'content' => 'Max '.self::HUMIDITY_OPTIMAL_MAX.'%',
-                                'position' => 'start',
-                                'color' => 'rgba(255, 255, 255, 0.7)',
-                                'font' => ['size' => 11],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
+            'plugins' => ['legend' => ['display' => false]],
             'scales' => [
                 'x' => ['grid' => ['color' => 'rgba(255, 255, 255, 0.1)']],
                 'y' => [
                     'grid' => ['color' => 'rgba(255, 255, 255, 0.1)'],
                     'beginAtZero' => false,
+                    'suggestedMin' => self::HUMIDITY_OPTIMAL_MIN,
+                    'suggestedMax' => self::HUMIDITY_OPTIMAL_MAX,
                 ],
             ],
         ]);
@@ -260,62 +175,13 @@ class DashboardService
                 'intersect' => false,
                 'mode' => 'index',
             ],
-            'plugins' => [
-                'legend' => ['display' => false],
-                'annotation' => [
-                    'annotations' => [
-                        'goodRange' => [
-                            'type' => 'box',
-                            'yMin' => 0,
-                            'yMax' => self::CO2_OPTIMAL_MAX,
-                            'backgroundColor' => 'rgba(75, 192, 192, 0.1)',
-                            'borderWidth' => 0,
-                        ],
-                        'warningRange' => [
-                            'type' => 'box',
-                            'yMin' => self::CO2_OPTIMAL_MAX,
-                            'yMax' => self::CO2_WARNING_MAX,
-                            'backgroundColor' => 'rgba(255, 206, 86, 0.1)',
-                            'borderWidth' => 0,
-                        ],
-                        'optimalLine' => [
-                            'type' => 'line',
-                            'yMin' => self::CO2_OPTIMAL_MAX,
-                            'yMax' => self::CO2_OPTIMAL_MAX,
-                            'borderColor' => 'rgba(75, 192, 192, 0.5)',
-                            'borderWidth' => 2,
-                            'borderDash' => [5, 5],
-                            'label' => [
-                                'display' => true,
-                                'content' => 'Optimal '.self::CO2_OPTIMAL_MAX.' ppm',
-                                'position' => 'start',
-                                'color' => 'rgba(255, 255, 255, 0.7)',
-                                'font' => ['size' => 11],
-                            ],
-                        ],
-                        'warningLine' => [
-                            'type' => 'line',
-                            'yMin' => self::CO2_WARNING_MAX,
-                            'yMax' => self::CO2_WARNING_MAX,
-                            'borderColor' => 'rgba(255, 99, 132, 0.5)',
-                            'borderWidth' => 2,
-                            'borderDash' => [5, 5],
-                            'label' => [
-                                'display' => true,
-                                'content' => 'Warning '.self::CO2_WARNING_MAX.' ppm',
-                                'position' => 'start',
-                                'color' => 'rgba(255, 255, 255, 0.7)',
-                                'font' => ['size' => 11],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
+            'plugins' => ['legend' => ['display' => false]],
             'scales' => [
                 'x' => ['grid' => ['color' => 'rgba(255, 255, 255, 0.1)']],
                 'y' => [
                     'grid' => ['color' => 'rgba(255, 255, 255, 0.1)'],
-                    'beginAtZero' => false,
+                    'beginAtZero' => true,
+                    'suggestedMax' => self::CO2_WARNING_MAX,
                 ],
             ],
         ]);
