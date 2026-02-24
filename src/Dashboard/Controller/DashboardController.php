@@ -6,6 +6,7 @@ namespace App\Dashboard\Controller;
 
 use App\Api\SensorData\Repository\SensorDataRepository;
 use App\Dashboard\Service\DashboardService;
+use App\Node\Repository\NodeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,13 +18,16 @@ use Symfony\Component\Routing\Attribute\Route;
 class DashboardController extends AbstractController
 {
     private DashboardService $dashboardService;
+    private NodeRepository $nodeRepository;
     private SensorDataRepository $sensorDataRepository;
 
     public function __construct(
         DashboardService $dashboardService,
+        NodeRepository $nodeRepository,
         SensorDataRepository $sensorDataRepository,
     ) {
         $this->dashboardService = $dashboardService;
+        $this->nodeRepository = $nodeRepository;
         $this->sensorDataRepository = $sensorDataRepository;
     }
 
@@ -31,6 +35,7 @@ class DashboardController extends AbstractController
     public function index(string $homeIdentifier, string $nodeUuid): Response
     {
         $data = $this->sensorDataRepository->getLastEntryByNodeUuid($nodeUuid);
+        $node = $this->nodeRepository->findByNodeUuid($nodeUuid);
 
         $chartData = $this->dashboardService->getChartDataByNodeUuid($nodeUuid, '-12 hours');
 
@@ -53,6 +58,7 @@ class DashboardController extends AbstractController
         $version = file_exists($versionFile) ? trim(file_get_contents($versionFile)) : 'N/A';
 
         return $this->render('@Dashboard/index.html.twig', [
+            'nodeTitle' => $node->getTitle(),
             'homeIdentifier' => $homeIdentifier,
             'nodeUuid' => $nodeUuid,
             'data' => $data,

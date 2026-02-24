@@ -21,6 +21,14 @@ class NodeRepository extends ServiceEntityRepository
     }
 
     /**
+     * Find Node by Node UUID.
+     */
+    public function findByNodeUuid(string $nodeUuid): Node
+    {
+        return $this->findOneBy(['uuid' => $nodeUuid]);
+    }
+
+    /**
      * Find all Nodes by Home ID.
      *
      * @return Node[]
