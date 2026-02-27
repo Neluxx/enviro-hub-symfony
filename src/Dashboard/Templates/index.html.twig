@@ -8,7 +8,10 @@
          data-controller="dashboard"
          data-dashboard-node-uuid-value="{{ nodeUuid }}"
          data-dashboard-home-identifier-value="{{ homeIdentifier }}">
-        <h1 class="text-center mb-4">{{ nodeTitle }}</h2>
+        <div class="position-relative d-flex align-items-center justify-content-center mb-4">
+            <a href="/{{ homeIdentifier }}" class="btn btn-outline-light btn-sm position-absolute start-0">← Back to Nodes</a>
+            <h1 class="mb-0">{{ nodeTitle }}</h1>
+        </div>
         {# Current Values Cards #}
         <div class="row g-3 mb-4">
             <div class="col-12 col-md-4">
