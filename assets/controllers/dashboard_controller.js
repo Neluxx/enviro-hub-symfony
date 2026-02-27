@@ -1,4 +1,5 @@
 import { Controller } from '@hotwired/stimulus';
+import Annotation from 'chartjs-plugin-annotation';
 
 export default class extends Controller {
     static targets = ['button'];
@@ -9,6 +10,11 @@ export default class extends Controller {
 
     connect() {
         this.charts = {};
+
+        document.addEventListener('chartjs:init', (event) => {
+            const Chart = event.detail.Chart;
+            Chart.register(Annotation);
+        }, { once: true });
     }
 
     /**

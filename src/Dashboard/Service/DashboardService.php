@@ -20,10 +20,16 @@ class DashboardService
 {
     private const int TEMP_MIN = 10;
     private const int TEMP_MAX = 30;
+    private const int TEMP_OPTIMAL_MIN = 18;
+    private const int TEMP_OPTIMAL_MAX = 24;
     private const int HUMIDITY_MIN = 0;
     private const int HUMIDITY_MAX = 100;
+    private const int HUMIDITY_OPTIMAL_MIN = 40;
+    private const int HUMIDITY_OPTIMAL_MAX = 60;
     private const int CO2_MIN = 400;
     private const int CO2_MAX = 2000;
+    private const int CO2_OPTIMAL_MAX = 1000;
+    private const int CO2_WARNING_MAX = 1600;
 
     private SensorDataRepository $repository;
     private ChartBuilderInterface $chartBuilder;
@@ -90,7 +96,29 @@ class DashboardService
                 'intersect' => false,
                 'mode' => 'index',
             ],
-            'plugins' => ['legend' => ['display' => false]],
+            'plugins' => [
+                'legend' => ['display' => false],
+                'annotation' => [
+                    'annotations' => [
+                        'minLine' => [
+                            'type' => 'line',
+                            'yMin' => self::TEMP_OPTIMAL_MIN,
+                            'yMax' => self::TEMP_OPTIMAL_MIN,
+                            'borderColor' => 'rgba(54, 162, 235, 0.7)',
+                            'borderWidth' => 2,
+                            'borderDash' => [5, 5],
+                        ],
+                        'maxLine' => [
+                            'type' => 'line',
+                            'yMin' => self::TEMP_OPTIMAL_MAX,
+                            'yMax' => self::TEMP_OPTIMAL_MAX,
+                            'borderColor' => 'rgba(54, 162, 235, 0.7)',
+                            'borderWidth' => 2,
+                            'borderDash' => [5, 5],
+                        ],
+                    ],
+                ],
+            ],
             'scales' => [
                 'x' => ['grid' => ['color' => 'rgba(255, 255, 255, 0.1)']],
                 'y' => [
@@ -133,7 +161,29 @@ class DashboardService
                 'intersect' => false,
                 'mode' => 'index',
             ],
-            'plugins' => ['legend' => ['display' => false]],
+            'plugins' => [
+                'legend' => ['display' => false],
+                'annotation' => [
+                    'annotations' => [
+                        'minLine' => [
+                            'type' => 'line',
+                            'yMin' => self::HUMIDITY_OPTIMAL_MIN,
+                            'yMax' => self::HUMIDITY_OPTIMAL_MIN,
+                            'borderColor' => 'rgba(54, 162, 235, 0.7)',
+                            'borderWidth' => 2,
+                            'borderDash' => [5, 5],
+                        ],
+                        'maxLine' => [
+                            'type' => 'line',
+                            'yMin' => self::HUMIDITY_OPTIMAL_MAX,
+                            'yMax' => self::HUMIDITY_OPTIMAL_MAX,
+                            'borderColor' => 'rgba(54, 162, 235, 0.7)',
+                            'borderWidth' => 2,
+                            'borderDash' => [5, 5],
+                        ],
+                    ],
+                ],
+            ],
             'scales' => [
                 'x' => ['grid' => ['color' => 'rgba(255, 255, 255, 0.1)']],
                 'y' => [
@@ -176,7 +226,29 @@ class DashboardService
                 'intersect' => false,
                 'mode' => 'index',
             ],
-            'plugins' => ['legend' => ['display' => false]],
+            'plugins' => [
+                'legend' => ['display' => false],
+                'annotation' => [
+                    'annotations' => [
+                        'optimalLine' => [
+                            'type' => 'line',
+                            'yMin' => self::CO2_OPTIMAL_MAX,
+                            'yMax' => self::CO2_OPTIMAL_MAX,
+                            'borderColor' => 'rgba(255, 206, 86, 0.7)',
+                            'borderWidth' => 2,
+                            'borderDash' => [5, 5],
+                        ],
+                        'warningLine' => [
+                            'type' => 'line',
+                            'yMin' => self::CO2_WARNING_MAX,
+                            'yMax' => self::CO2_WARNING_MAX,
+                            'borderColor' => 'rgba(255, 99, 132, 0.7)',
+                            'borderWidth' => 2,
+                            'borderDash' => [5, 5],
+                        ],
+                    ],
+                ],
+            ],
             'scales' => [
                 'x' => ['grid' => ['color' => 'rgba(255, 255, 255, 0.1)']],
                 'y' => [
@@ -192,7 +264,7 @@ class DashboardService
     }
 
     /**
-     * Format data into chart-ready structure.
+     * Format data into a chart-ready structure.
      *
      * @param array<SensorData|array{label: string, temperature: int, humidity: int, co2: int|null}> $data
      *
