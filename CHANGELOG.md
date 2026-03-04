@@ -22,6 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 
+## [v2.3.2](https://github.com/Neluxx/enviro-hub/releases/tag/v2.3.2) - 2026-03-04
+
+### Added
+- Add a refresh button to the dashboard template
+
 ## [v2.3.1](https://github.com/Neluxx/enviro-hub/releases/tag/v2.3.1) - 2026-02-27
 
 ### Changed
